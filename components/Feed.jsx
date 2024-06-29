@@ -4,20 +4,6 @@ import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
 
-const PromptCardList = ({ data, handleTagClick }) => {
-  return (
-    <div className="mt-16 prompt_layout">
-      {data.map((post) => (
-        <PromptCard
-          key={post._id}
-          post={post}
-          handleTagClick={handleTagClick}
-        />
-      ))}
-    </div>
-  );
-};
-
 const Feed = () => {
   const [allPosts, setAllPosts] = useState([]);
 
@@ -87,7 +73,15 @@ const Feed = () => {
           handleTagClick={handleTagClick}
         />
       ) : (
-        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
+        <div className="mt-16 prompt_layout">
+          {allPosts.map((post) => (
+            <PromptCard
+              key={post._id}
+              post={post}
+              handleTagClick={handleTagClick}
+            />
+          ))}
+        </div>
       )}
     </section>
   );
