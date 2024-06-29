@@ -2,10 +2,14 @@ import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
 
 export const GET = async (request) => {
+  console.log("Received request to /api/prompt");
+
   try {
     await connectToDB();
+    console.log("Connected to database");
 
     const prompts = await Prompt.find({}).populate("creator");
+    console.log("Fetched prompts:", prompts);
 
     return new Response(JSON.stringify(prompts), {
       status: 200,
