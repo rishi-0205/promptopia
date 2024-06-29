@@ -12,11 +12,21 @@ const handler = NextAuth({
   ],
   callbacks: {
     async session({ session }) {
-      const sessionUser = await User.findOne({
-        email: session.user.email,
-      });
-      session.user.id = sessionUser._id.toString();
-      return session;
+      try {
+        await connectToDB();
+        const sessionUser = await User.findOne({
+          email: session.user.email,
+        });
+        if (sessionUser) {
+          session.user.id = sessionUser._id.toString();
+        } else {
+          console.error("User not found");
+        }
+        return session;
+      } catch (error) {
+        console.error("Error in session callback:", error);
+        throw new Error("Error in session callback");
+      }
     },
     async signIn({ profile }) {
       try {
@@ -33,7 +43,8 @@ const handler = NextAuth({
         }
         return true;
       } catch (error) {
-        console.log(error);
+        console.error("Error in signIn callback:", error);
+        return false;
       }
     },
   },
