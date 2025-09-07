@@ -34,3 +34,67 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+```
+promptopia
+├─ app
+│  ├─ api
+│  │  ├─ auth
+│  │  │  └─ [...nextauth]
+│  │  │     └─ route.js
+│  │  ├─ prompt
+│  │  │  ├─ new
+│  │  │  │  └─ route.js
+│  │  │  ├─ route.js
+│  │  │  └─ [id]
+│  │  │     └─ route.js
+│  │  └─ users
+│  │     └─ [id]
+│  │        └─ posts
+│  │           └─ route.js
+│  ├─ create-prompt
+│  │  └─ page.jsx
+│  ├─ layout.jsx
+│  ├─ page.jsx
+│  ├─ profile
+│  │  ├─ loading.jsx
+│  │  ├─ page.jsx
+│  │  └─ [id]
+│  │     └─ page.jsx
+│  └─ update-prompt
+│     └─ page.jsx
+├─ components
+│  ├─ Feed.jsx
+│  ├─ Form.jsx
+│  ├─ Nav.jsx
+│  ├─ Profile.jsx
+│  ├─ PromptCard.jsx
+│  └─ Provider.jsx
+├─ jsconfig.json
+├─ models
+│  ├─ prompt.js
+│  └─ user.js
+├─ next.config.mjs
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+├─ public
+│  └─ assets
+│     ├─ icons
+│     │  ├─ copy.svg
+│     │  ├─ link.svg
+│     │  ├─ loader.svg
+│     │  ├─ menu.svg
+│     │  └─ tick.svg
+│     └─ images
+│        ├─ grid.svg
+│        ├─ logo-text.svg
+│        └─ logo.svg
+├─ README.md
+├─ styles
+│  └─ globals.css
+├─ tailwind.config.js
+└─ utils
+   └─ database.js
+
+```
